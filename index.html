@@ -1,56 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Play It Loud</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     <style>
         body {
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
         }
+
         .no-scrollbar::-webkit-scrollbar {
-            display: none; /* for Chrome, Safari, and Opera */
+            display: none;
+            /* for Chrome, Safari, and Opera */
         }
+
         .no-scrollbar {
-            -ms-overflow-style: none;  /* for IE and Edge */
-            scrollbar-width: none;  /* for Firefox */
+            -ms-overflow-style: none;
+            /* for IE and Edge */
+            scrollbar-width: none;
+            /* for Firefox */
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out;
         }
     </style>
 </head>
-<body class="bg-black">
 
-    <div class="relative h-screen w-full bg-cover bg-center" style="background-image: url('https://assets.nflxext.com/ffe/siteui/vlv3/dace47b4-a5cb-4368-8076-08f443f2835e/3de42a32-3435-43f4-a81d-c47556f8fee3/KE-en-20230821-popsignuptwoweeks-perspective_alpha_website_large.jpg');">
+<body class="bg-black text-white">
+
+    <div class="relative h-screen w-full bg-cover bg-center"
+        style="background-image: url('https://assets.nflxext.com/ffe/siteui/vlv3/dace47b4-a5cb-4368-8076-08f443f2835e/3de42a32-3435-43f4-a81d-c47556f8fee3/KE-en-20230821-popsignuptwoweeks-perspective_alpha_website_large.jpg');">
         <div class="absolute inset-0 bg-black bg-opacity-60"></div>
 
         <div class="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <!-- Header -->
             <header class="flex items-center justify-between py-6">
                 <div>
-                    <svg viewBox="0 0 111 30" class="h-8 w-auto fill-current text-red-600" aria-hidden="true">
-                        <path d="M105.062 14.281c0 2.219-1.469 4.156-3.844 4.156-2.406 0-3.844-1.938-3.844-4.156s1.438-4.156 3.844-4.156c2.375 0 3.844 1.938 3.844 4.156zM111 14.281c0-4.656-3.094-8.062-8-8.062s-8 3.406-8 8.062 3.094 8.062 8 8.062 8-3.406 8-8.062zM94.625 14.656h-2.188v-2.188h2.188v2.188zM91.906 14.281c0-4.656-3.094-8.062-8-8.062s-8 3.406-8 8.062 3.094 8.062 8 8.062 8-3.406 8-8.062zM80.094 14.656h-2.188v-2.188h2.188v2.188zM77.375 14.281c0-4.656-3.094-8.062-8-8.062s-8 3.406-8 8.062 3.094 8.062 8 8.062 8-3.406 8-8.062zM63.938 14.281c0 2.219-1.469 4.156-3.844 4.156-2.406 0-3.844-1.938-3.844-4.156s1.438-4.156 3.844-4.156c2.375 0 3.844 1.938 3.844 4.156zM69.531 14.281c0-4.656-3.094-8.062-8-8.062s-8 3.406-8 8.062 3.094 8.062 8 8.062 8-3.406 8-8.062zM52.938 4.688l-4.594 17.5h2.531l1.5-5.906h4.594l1.5 5.906h2.531l-4.594-17.5h-3.469zM51.188 13.906l1.75-6.719 1.75 6.719h-3.5zM43.781 12.031v-2.594c1.188-1.531 3.25-2.656 5.562-2.656v2.688c-1.312 0-2.344.406-3.156 1.156v3.438h3.156v2.156h-3.156v6.312h-2.406v-10.5zM35.625 14.281c0 2.219-1.469 4.156-3.844 4.156-2.406 0-3.844-1.938-3.844-4.156s1.438-4.156 3.844-4.156c2.375 0 3.844 1.938 3.844 4.156zM41.219 14.281c0-4.656-3.094-8.062-8-8.062s-8 3.406-8 8.062 3.094 8.062 8 8.062 8-3.406 8-8.062zM26.969 0l-5.062 14.281v8.031h2.438v-6.781l4.625-13.094h.062l4.625 13.094v6.781h2.438v-8.031l-5.062-14.281h-4.062zM12.969 4.688v17.5h2.406v-17.5h-2.406zM8.375 14.281c0 2.219-1.469 4.156-3.844 4.156-2.406 0-3.844-1.938-3.844-4.156s1.438-4.156 3.844-4.156c2.375 0 3.844 1.938 3.844 4.156zM13.969 14.281c0-4.656-3.094-8.062-8-8.062s-8 3.406-8 8.062 3.094 8.062 8 8.062 8-3.406 8-8.062z"></path>
-                    </svg>
+                    <img src="New Folder With Items/Adobe Express - file.png" alt=""
+                        class="w-[12rem] h-12 object-cover rounded-lg">
                 </div>
+
                 <div>
-                    <a href="#" class="rounded-md bg-red-600 px-4 py-2 text-sm font-medium text-white hover:bg-red-700">Sign In</a>
+                    <a href="#"
+                        class="rounded-md bg-red-600 px-4 py-2 text-sm font-medium text-white hover:bg-red-700">Plug In
+                    </a>
                 </div>
             </header>
 
             <!-- Main Content -->
             <main class="flex h-[calc(100vh-80px)] items-center justify-center">
                 <div class="max-w-3xl text-center text-white">
-                    <h1 class="text-4xl font-extrabold sm:text-5xl md:text-6xl">Unlimited movies, TV shows, and more</h1>
-                    <p class="mt-4 text-xl sm:text-2xl">Starts at Ugx 200. Cancel anytime.</p>
-                    <p class="mt-6 text-lg sm:text-xl">Ready to watch? Enter your email to create or restart your membership.</p>
+                    <h1 class="text-4xl font-extrabold sm:text-5xl md:text-6xl">Vibe with endless movies, TV shows, and
+                        straight-up fire content</h1>
+                    <p class="mt-4 text-xl sm:text-2xl">Starts at Ugx 10000. No cap.</p>
+                    <p class="mt-6 text-lg sm:text-xl">Ready to binge? Drop your email to level up your watch game.</p>
 
                     <form class="mx-auto mt-6 flex max-w-xl flex-col items-center gap-4 sm:flex-row">
                         <div class="relative w-full">
-                            <input type="email" id="email" name="email" class="peer w-full rounded-md border border-gray-500 bg-black bg-opacity-50 px-4 py-4 text-white placeholder-transparent focus:border-white focus:outline-none focus:ring-0" placeholder="Email address">
-                            <label for="email" class="absolute left-4 top-4 cursor-text text-gray-400 transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-focus:-top-2 peer-focus:text-xs peer-focus:text-gray-400">Email address</label>
+                            <input type="email" id="email" name="email"
+                                class="peer w-full rounded-md border border-gray-500 bg-black bg-opacity-50 px-4 py-4 text-white placeholder-transparent focus:border-white focus:outline-none focus:ring-0"
+                                placeholder="Email address">
+                            <label for="email"
+                                class="absolute left-4 top-4 cursor-text text-gray-400 transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-focus:-top-2 peer-focus:text-xs peer-focus:text-gray-400">Email
+                                address</label>
                         </div>
-                        <button type="submit" class="flex w-auto shrink-0 items-center justify-center rounded-md bg-red-600 px-6 py-4 text-xl font-medium text-white hover:bg-red-700 sm:text-2xl">
-                            Get Started
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="ml-2 h-6 w-6">
+                        <button type="submit"
+                            class="flex w-auto shrink-0 items-center justify-center rounded-md bg-red-600 px-6 py-4 text-xl font-medium text-white hover:bg-red-700 sm:text-2xl">
+                            Let's Gooo
+                            <svg xmlns="http://www.w3.org/100000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                                stroke="currentColor" class="ml-2 h-6 w-6">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
                             </svg>
                         </button>
@@ -61,210 +85,275 @@
     </div>
     <div class="space-y-12 py-12">
         <!-- Trending Now Section -->
-        <div class="pl-4 sm:pl-6 md:pl-12">
-            <h2 class="text-2xl font-bold mb-4">Trending Now</h2>
+
+
+        <div class="p-8">
+            <h2 class="text-2xl font-bold mb-4">What's Poppin' RN</h2>
             <div class="relative">
-                <div class="flex space-x-8 overflow-x-auto no-scrollbar pb-4">
-                    <!-- Movie 1 -->
-                    <div class="flex-shrink-0 flex items-center">
-                        <span class="text-9xl font-black text-stone-900" style="text-shadow: -1px 0 #6e6e6e, 0 1px #6e6e6e, 1px 0 #6e6e6e, 0 -1px #6e6e6e;">1</span>
-                        <img src="New Folder With Items/Screenshot 2025-08-24 at 16.10.17.png" alt="Wednesday" class="w-40 h-auto  -ml-10">
+                <div class="flex space-x-12 overflow-x-auto pb-4">
+
+                    <!-- Item 1 -->
+                    <div class="flex items-center">
+                        <div class="text-[12rem] font-bold text-black -mr-12"
+                            style="-webkit-text-stroke: 2px white; z-index: 1;">1</div>
+                        <div class="flex-shrink-0 w-52">
+                            <img src="New Folder With Items/Screenshot 2025-08-24 at 16.10.17.png" alt="Wednesday">
+                        </div>
                     </div>
-                    <!-- Movie 2 -->
-                    <div class="flex-shrink-0 flex items-center">
-                        <span class="text-9xl font-black text-stone-900" style="text-shadow: -1px 0 #6e6e6e, 0 1px #6e6e6e, 1px 0 #6e6e6e, 0 -1px #6e6e6e;">2</span>
-                        <img src="New Folder With Items/Screenshot 2025-08-24 at 18.59.38.png" alt="Fatal Seduction" class="w-40 h-auto  -ml-10">
+
+                    <!-- Item 2 -->
+                    <div class="flex items-center">
+                        <div class="text-[12rem] font-bold text-black -mr-12"
+                            style="-webkit-text-stroke: 2px white; z-index: 1;">2</div>
+                        <div class="flex-shrink-0 w-52">
+                            <img src="New Folder With Items/Screenshot 2025-08-24 at 19.04.12.png" alt="Fatal Seduction">
+                        </div>
                     </div>
-                    <!-- Movie 3 -->
-                    <div class="flex-shrink-0 flex items-center">
-                         <span class="text-9xl font-black text-stone-900" style="text-shadow: -1px 0 #6e6e6e, 0 1px #6e6e6e, 1px 0 #6e6e6e, 0 -1px #6e6e6e;">3</span>
-                        <img src="New Folder With Items/Screenshot 2025-08-24 at 19.04.12.png" alt="KPOP Demon Hunters" class="w-40 h-auto  -ml-12">
+
+                    <!-- Item 3 -->
+                    <div class="flex items-center">
+                        <div class="text-[12rem] font-bold text-black -mr-12"
+                            style="-webkit-text-stroke: 2px white; z-index: 1;">3</div>
+                        <div class="flex-shrink-0 w-52">
+                            <img src="New Folder With Items/Screenshot 2025-08-24 at 19.00.09.png" alt="K-Pop Demon Hunters" >
+                        </div>
                     </div>
-                    <!-- Movie 4 -->
-                    <div class="flex-shrink-0 flex items-center">
-                         <span class="text-9xl font-black text-stone-900" style="text-shadow: -1px 0 #6e6e6e, 0 1px #6e6e6e, 1px 0 #6e6e6e, 0 -1px #6e6e6e;">4</span>
-                        <img src="New Folder With Items/Screenshot 2025-08-24 at 19.00.09.png" alt="Squid Game" class="w-40 h-auto  -ml-10">
+
+                    <!-- Item 4 -->
+                    <div class="flex items-center">
+                        <div class="text-[12rem] font-bold text-black -mr-12"
+                            style="-webkit-text-stroke: 2px white; z-index: 1;">4</div>
+                        <div class="flex-shrink-0 w-52">
+                            <img src="New Folder With Items/Screenshot 2025-08-24 at 18.59.55.png" alt="K-Pop Demon Hunters Sing-Along">
+                              
+                        </div>
                     </div>
-                    <!-- Movie 5 -->
-                    <div class="flex-shrink-0 flex items-center">
-                         <span class="text-9xl font-black text-stone-900" style="text-shadow: -1px 0 #6e6e6e, 0 1px #6e6e6e, 1px 0 #6e6e6e, 0 -1px #6e6e6e;">5</span>
-                        <img src="New Folder With Items/Screenshot 2025-08-24 at 19.01.15.png" alt="Unspeakable Sins" class="w-40 h-auto  -ml-10">
-                    </div>
-                    <!-- Movie 6 -->
-                    <div class="flex-shrink-0 flex items-center">
-                         <span class="text-9xl font-black text-stone-900" style="text-shadow: -1px 0 #6e6e6e, 0 1px #6e6e6e, 1px 0 #6e6e6e, 0 -1px #6e6e6e;">6</span>
-                        <img src="New Folder With Items/Screenshot 2025-08-24 at 19.01.01.png" alt="My Oxford Year" class="w-40 h-auto  -ml-12">
-                    </div>
-                    <!-- Movie 7 -->
-                     <div class="flex-shrink-0 flex items-center">
-                         <span class="text-9xl font-black text-stone-900" style="text-shadow: -1px 0 #6e6e6e, 0 1px #6e6e6e, 1px 0 #6e6e6e, 0 -1px #6e6e6e;">7</span>
-                        <img src="New Folder With Items/Screenshot 2025-08-24 at 19.04.25.png" alt="Fatal Seduction" class="w-40 h-auto  -ml-10">
+
+                    <!-- Item 5 -->
+                    <div class="flex items-center">
+                        <div class="text-[12rem] font-bold text-black -mr-12"
+                            style="-webkit-text-stroke: 2px white; z-index: 1;">5</div>
+                        <div class="flex-shrink-0 w-52">
+                            <img src="New Folder With Items/Screenshot 2025-08-24 at 18.59.38.png" alt="Squid Game">
+                        </div>
                     </div>
                 </div>
-                 <div class="absolute right-0 top-0 bottom-0 flex items-center pr-4 bg-gradient-to-l from-black via-black/80 to-transparent">
-                    <button class="bg-black/50 p-2 rounded-full hover:bg-black/80 transition-colors">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-                        </svg>
-                    </button>
+                <div
+                    class="absolute right-0 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 p-2 rounded-full cursor-pointer">
+                    <svg xmlns="http://www.w3.org/100000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
                 </div>
             </div>
         </div>
 
         <!-- More Reasons to Join Section -->
         <section class="px-4 sm:px-6 md:px-12">
-            <h2 class="text-2xl font-bold mb-6">More Reasons to Join</h2>
+            <h2 class="text-2xl font-bold mb-6">Why You'll Be Obsessed</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+
                 <!-- Card 1 -->
-                <div class="bg-gradient-to-br from-[#2a1a44] to-[#140e21] rounded-lg p-6 flex flex-col justify-between h-56">
+                <div
+                    class="bg-gradient-to-br from-[#2a1a44] to-[#140e21] rounded-lg p-6 flex flex-col justify-between h-56">
                     <div>
-                        <h3 class="text-xl font-bold mb-2">Enjoy on your TV</h3>
-                        <p class="text-gray-300 text-sm">Watch on Smart TVs, Playstation, Xbox, Chromecast, Apple TV, Blu-ray players, and more.</p>
-                    </div>
-                     <div class="flex justify-end">
-                        <img src="https://i.imgur.com/L608N7L.png" alt="TV icon" class="w-20">
-                    </div>
-                </div>
-                <!-- Card 2 -->
-                <div class="bg-gradient-to-br from-[#2a1a44] to-[#140e21] rounded-lg p-6 flex flex-col justify-between h-56">
-                    <div>
-                        <h3 class="text-xl font-bold mb-2">Download your shows to watch offline</h3>
-                        <p class="text-gray-300 text-sm">Save your favorites easily and always have something to watch.</p>
+                        <h3 class="text-xl font-bold mb-2">Stream on Your Big Screen</h3>
+                        <p class="text-gray-300 text-sm">Watch on Smart TVs, PlayStation, Xbox, whatever. It's a whole
+                            vibe.</p>
                     </div>
                     <div class="flex justify-end">
-                        <img src="https://i.imgur.com/G3Q9n1R.png" alt="Download icon" class="w-16">
+                        <i class="fas fa-desktop text-white text-5xl"></i>
                     </div>
                 </div>
+
+                <!-- Card 2 -->
+                <div
+                    class="bg-gradient-to-br from-[#2a1a44] to-[#140e21] rounded-lg p-6 flex flex-col justify-between h-56">
+                    <div>
+                        <h3 class="text-xl font-bold mb-2">Watch Offline, No WiFi Needed</h3>
+                        <p class="text-gray-300 text-sm">Save your faves and watch on the go. Low-key the best feature.
+                        </p>
+                    </div>
+                    <div class="flex justify-end">
+                        <i class="fas fa-wifi text-white text-5xl"></i>
+                    </div>
+                </div>
+
                 <!-- Card 3 -->
-                <div class="bg-gradient-to-br from-[#2a1a44] to-[#140e21] rounded-lg p-6 flex flex-col justify-between h-56">
+                <div
+                    class="bg-gradient-to-br from-[#2a1a44] to-[#140e21] rounded-lg p-6 flex flex-col justify-between h-56">
                     <div>
-                        <h3 class="text-xl font-bold mb-2">Watch everywhere</h3>
-                        <p class="text-gray-300 text-sm">Stream unlimited movies and TV shows on your phone, tablet, laptop, and TV.</p>
+                        <h3 class="text-xl font-bold mb-2">Watch Literally Anywhere</h3>
+                        <p class="text-gray-300 text-sm">Stream on your phone, tablet, laptop, you name it. We're
+                            everywhere.</p>
                     </div>
-                     <div class="flex justify-end">
-                        <img src="https://i.imgur.com/L7E1F30.png" alt="Devices icon" class="w-20">
+                    <div class="flex justify-end">
+                        <i class="fas fa-laptop text-white text-5xl"></i>
                     </div>
                 </div>
+
                 <!-- Card 4 -->
-                <div class="bg-gradient-to-br from-[#2a1a44] to-[#140e21] rounded-lg p-6 flex flex-col justify-between h-56">
+                <div
+                    class="bg-gradient-to-br from-[#2a1a44] to-[#140e21] rounded-lg p-6 flex flex-col justify-between h-56">
                     <div>
-                        <h3 class="text-xl font-bold mb-2">Create profiles for kids</h3>
-                        <p class="text-gray-300 text-sm">Send kids on adventures with their favorite characters in a space made just for them—free with your membership.</p>
+                        <h3 class="text-xl font-bold mb-2">Create Profiles for the Fam</h3>
+                        <p class="text-gray-300 text-sm">Let your little sibs have their own space. It's free with your
+                            membership.</p>
                     </div>
-                     <div class="flex justify-end">
-                        <img src="https://i.imgur.com/I2d26U7.png" alt="Kids profiles icon" class="w-16">
+                    <div class="flex justify-end">
+                        <i class="fas fa-user text-white text-5xl"></i>
                     </div>
                 </div>
+
             </div>
         </section>
 
     </div>
-      <section class="border-gray-800 bg-black text-white py-20">
+    <section class="border-gray-800 bg-black text-white py-20">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl sm:text-5xl font-bold text-center mb-12">Frequently Asked Questions</h2>
+            <h2 class="text-4xl sm:text-5xl font-bold text-center mb-12">Spill the Tea: FAQs</h2>
 
             <div class="max-w-3xl mx-auto space-y-2" id="faq-accordion">
                 <!-- FAQ Item 1 -->
                 <div class="faq-item">
-                    <button class="faq-question w-full bg-zinc-800 hover:bg-zinc-700 transition-colors text-left p-6 flex justify-between items-center">
-                        <span class="text-xl sm:text-2xl font-medium">What is play it loud?</span>
-                        <svg class="faq-icon w-8 h-8 sm:w-10 sm:h-10 transition-transform duration-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <button
+                        class="faq-question w-full bg-zinc-800 hover:bg-zinc-700 transition-colors text-left p-6 flex justify-between items-center">
+                        <span class="text-xl sm:text-2xl font-medium">What's the deal with Play It Loud?</span>
+                        <svg class="faq-icon w-8 h-8 sm:w-10 sm:h-10 transition-transform duration-500"
+                            xmlns="http://www.w3.org/100000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                         </svg>
                     </button>
                     <div class="faq-answer bg-zinc-800 mt-px">
                         <div class="p-6 border-t-2 border-black">
-                           <p class="text-lg sm:text-xl leading-relaxed">Play It Loudis a streaming service that offers a wide variety of award-winning TV shows, movies, anime, documentaries, and more on thousands of internet-connected devices.<br><br>You can watch as much as you want, whenever you want without a single commercial – all for one low monthly price. There's always something new to discover and new TV shows and movies are added every week!</p>
+                            <p class="text-lg sm:text-xl leading-relaxed">Play It Loud is a whole streaming universe.
+                                We've got award-winning shows, movies, anime, docs, and more. Watch whatever you want,
+                                whenever you want, with zero ads. New stuff drops every week, so you'll never be bored.
+                            </p>
                         </div>
                     </div>
                 </div>
 
                 <!-- FAQ Item 2 -->
                 <div class="faq-item">
-                    <button class="faq-question w-full bg-zinc-800 hover:bg-zinc-700 transition-colors text-left p-6 flex justify-between items-center">
-                        <span class="text-xl sm:text-2xl font-medium">How much does Play It Loudcost?</span>
-                        <svg class="faq-icon w-8 h-8 sm:w-10 sm:h-10 transition-transform duration-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <button
+                        class="faq-question w-full bg-zinc-800 hover:bg-zinc-700 transition-colors text-left p-6 flex justify-between items-center">
+                        <span class="text-xl sm:text-2xl font-medium">How much is this gonna cost me?</span>
+                        <svg class="faq-icon w-8 h-8 sm:w-10 sm:h-10 transition-transform duration-500"
+                            xmlns="http://www.w3.org/100000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                         </svg>
                     </button>
                     <div class="faq-answer bg-zinc-800 mt-px">
-                         <div class="p-6 border-t-2 border-black">
-                           <p class="text-lg sm:text-xl leading-relaxed">Watch Play It Loudon your smartphone, tablet, Smart TV, laptop, or streaming device, all for one fixed monthly fee. Plans range from Ugx 200 to Ugx 1,100 a month. No extra costs, no contracts.</p>
+                        <div class="p-6 border-t-2 border-black">
+                            <p class="text-lg sm:text-xl leading-relaxed">Plans are super chill, from Ugx 10000 to Ugx
+                                15000 a month. No hidden fees, no drama. Just one monthly price for all the good stuff.
+                            </p>
                         </div>
                     </div>
                 </div>
-                
-                 <!-- FAQ Item 3 -->
+
+                <!-- FAQ Item 3 -->
                 <div class="faq-item">
-                    <button class="faq-question w-full bg-zinc-800 hover:bg-zinc-700 transition-colors text-left p-6 flex justify-between items-center">
+                    <button
+                        class="faq-question w-full bg-zinc-800 hover:bg-zinc-700 transition-colors text-left p-6 flex justify-between items-center">
                         <span class="text-xl sm:text-2xl font-medium">Where can I watch?</span>
-                        <svg class="faq-icon w-8 h-8 sm:w-10 sm:h-10 transition-transform duration-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <svg class="faq-icon w-8 h-8 sm:w-10 sm:h-10 transition-transform duration-500"
+                            xmlns="http://www.w3.org/100000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                         </svg>
                     </button>
                     <div class="faq-answer bg-zinc-800 mt-px">
-                         <div class="p-6 border-t-2 border-black">
-                           <p class="text-lg sm:text-xl leading-relaxed">Watch anywhere, anytime. Sign in with your Play It Loudaccount to watch instantly on the web at play it loud.com from your personal computer or on any internet-connected device that offers the Play It Loudapp, including smart TVs, smartphones, tablets, streaming media players and game consoles.<br><br>You can also download your favorite shows with the iOS, Android, or Windows 10 app. Use downloads to watch while you're on the go and without an internet connection. Take Play It Loudwith you anywhere.</p>
+                        <div class="p-6 border-t-2 border-black">
+                            <p class="text-lg sm:text-xl leading-relaxed">Literally anywhere. On the web at
+                                playitloud.com, on your smart TV, phone, tablet, gaming console, you name it. Download
+                                your faves and watch on the go, no internet required. Take us with you, we don't mind.
+                            </p>
                         </div>
                     </div>
                 </div>
 
-                 <!-- FAQ Item 4 -->
+                <!-- FAQ Item 4 -->
                 <div class="faq-item">
-                    <button class="faq-question w-full bg-zinc-800 hover:bg-zinc-700 transition-colors text-left p-6 flex justify-between items-center">
-                        <span class="text-xl sm:text-2xl font-medium">How do I cancel?</span>
-                        <svg class="faq-icon w-8 h-8 sm:w-10 sm:h-10 transition-transform duration-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <button
+                        class="faq-question w-full bg-zinc-800 hover:bg-zinc-700 transition-colors text-left p-6 flex justify-between items-center">
+                        <span class="text-xl sm:text-2xl font-medium">How do I dip?</span>
+                        <svg class="faq-icon w-8 h-8 sm:w-10 sm:h-10 transition-transform duration-500"
+                            xmlns="http://www.w3.org/100000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                         </svg>
                     </button>
                     <div class="faq-answer bg-zinc-800 mt-px">
-                         <div class="p-6 border-t-2 border-black">
-                           <p class="text-lg sm:text-xl leading-relaxed">Play It Loudis flexible. There are no pesky contracts and no commitments. You can easily cancel your account online in two clicks. There are no cancellation fees – start or stop your account anytime.</p>
+                        <div class="p-6 border-t-2 border-black">
+                            <p class="text-lg sm:text-xl leading-relaxed">It's easy, no questions asked. Cancel online
+                                in two clicks. No cancellation fees, no stress. Start or stop your account whenever you
+                                want.</p>
                         </div>
                     </div>
                 </div>
 
-                 <!-- FAQ Item 5 -->
+                <!-- FAQ Item 5 -->
                 <div class="faq-item">
-                    <button class="faq-question w-full bg-zinc-800 hover:bg-zinc-700 transition-colors text-left p-6 flex justify-between items-center">
-                        <span class="text-xl sm:text-2xl font-medium">What can I watch on play it loud?</span>
-                        <svg class="faq-icon w-8 h-8 sm:w-10 sm:h-10 transition-transform duration-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <button
+                        class="faq-question w-full bg-zinc-800 hover:bg-zinc-700 transition-colors text-left p-6 flex justify-between items-center">
+                        <span class="text-xl sm:text-2xl font-medium">What's good to watch?</span>
+                        <svg class="faq-icon w-8 h-8 sm:w-10 sm:h-10 transition-transform duration-500"
+                            xmlns="http://www.w3.org/100000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                         </svg>
                     </button>
                     <div class="faq-answer bg-zinc-800 mt-px">
-                         <div class="p-6 border-t-2 border-black">
-                           <p class="text-lg sm:text-xl leading-relaxed">Play It Loudhas an extensive library of feature films, documentaries, TV shows, anime, award-winning Play It Loudoriginals, and more. Watch as much as you want, anytime you want.</p>
+                        <div class="p-6 border-t-2 border-black">
+                            <p class="text-lg sm:text-xl leading-relaxed">We've got everything. Movies, documentaries,
+                                TV shows, anime, our own original content that slaps. Watch as much as you want, anytime
+                                you want. Seriously.</p>
                         </div>
                     </div>
                 </div>
 
-                 <!-- FAQ Item 6 -->
+                <!-- FAQ Item 6 -->
                 <div class="faq-item">
-                    <button class="faq-question w-full bg-zinc-800 hover:bg-zinc-700 transition-colors text-left p-6 flex justify-between items-center">
-                        <span class="text-xl sm:text-2xl font-medium">Is Play It Loudgood for kids?</span>
-                        <svg class="faq-icon w-8 h-8 sm:w-10 sm:h-10 transition-transform duration-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <button
+                        class="faq-question w-full bg-zinc-800 hover:bg-zinc-700 transition-colors text-left p-6 flex justify-between items-center">
+                        <span class="text-xl sm:text-2xl font-medium">Is it a vibe for the whole squad?</span>
+                        <svg class="faq-icon w-8 h-8 sm:w-10 sm:h-10 transition-transform duration-500"
+                            xmlns="http://www.w3.org/100000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                         </svg>
                     </button>
                     <div class="faq-answer bg-zinc-800 mt-px">
-                         <div class="p-6 border-t-2 border-black">
-                           <p class="text-lg sm:text-xl leading-relaxed">The Play It LoudKids experience is included in your membership to give parents control while kids enjoy family-friendly TV shows and movies in their own space.<br><br>Kids profiles come with PIN-protected parental controls that let you restrict the maturity rating of content kids can watch and block specific titles you don’t want kids to see.</p>
+                        <div class="p-6 border-t-2 border-black">
+                            <p class="text-lg sm:text-xl leading-relaxed">For sure. The Kids experience is included so
+                                you can have peace of mind. They get their own space with family-friendly shows and
+                                movies. Plus, you can set parental controls and block stuff you don't want them to see.
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div class="text-center mt-16">
-                <p class="text-xl mb-4">Ready to watch? Enter your email to create or restart your membership.</p>
+                <p class="text-xl mb-4">Ready to watch? Drop your email to create or restart your membership.</p>
                 <form class="max-w-xl mx-auto flex flex-col sm:flex-row gap-2">
                     <div class="relative w-full">
-                        <input type="email" id="email-faq" class="peer w-full rounded-md border border-zinc-500 bg-black bg-opacity-50 px-4 py-4 text-white placeholder-transparent focus:border-white focus:outline-none focus:ring-1 focus:ring-white" placeholder="Email address">
-                         <label for="email-faq" class="absolute left-4 -top-3.5 text-zinc-400 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-4 peer-focus:-top-3.5 peer-focus:text-white peer-focus:text-sm">Email address</label>
+                        <input type="email" id="email-faq"
+                            class="peer w-full rounded-md border border-zinc-500 bg-black bg-opacity-50 px-4 py-4 text-white placeholder-transparent focus:border-white focus:outline-none focus:ring-1 focus:ring-white"
+                            placeholder="Email address">
+                        <label for="email-faq"
+                            class="absolute left-4 -top-3.5 text-zinc-400 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-4 peer-focus:-top-3.5 peer-focus:text-white peer-focus:text-sm">Email
+                            address</label>
                     </div>
-                    <button type="submit" class="flex shrink-0 items-center justify-center rounded-md bg-red-600 px-5 py-3 text-xl font-medium text-white hover:bg-red-700 transition-transform hover:scale-105 sm:text-2xl">
-                        Get Started
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="ml-2 h-6 w-6">
+                    <button type="submit"
+                        class="flex shrink-0 items-center justify-center rounded-md bg-red-600 px-5 py-3 text-xl font-medium text-white hover:bg-red-700 transition-transform hover:scale-105 sm:text-2xl">
+                        Let's Gooo
+                        <svg xmlns="http://www.w3.org/100000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                            stroke="currentColor" class="ml-2 h-6 w-6">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
                         </svg>
                     </button>
@@ -274,11 +363,11 @@
     </section>
 
 
-       <footer class="bg-black text-gray-400 border-t-2 border-gray-800 py-16">
+    <footer class="bg-black text-gray-400 border-t-2 border-gray-800 py-16">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            
+
             <p class="mb-8">
-                Questions? <a href="#" class="underline hover:text-white">Contact us.</a>
+                Got questions? <a href="#" class="underline hover:text-white">Hit us up.</a>
             </p>
 
             <div class="grid grid-cols-2 sm:grid-cols-4 gap-x-4 gap-y-3 text-sm">
@@ -301,22 +390,30 @@
 
             <div class="relative inline-block mt-8">
                 <button class="flex items-center border border-gray-600 rounded bg-black px-4 py-2 text-white">
-                    <svg class="w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0C20.464 16.21 18.43 18 16.5 18c-2.485 0-4.5-4.03-4.5-9s2.015-9 4.5-9m-3.364 12.083A11.953 11.953 0 0112 10.5c2.998 0 5.74 1.1 7.843 2.918m-15.686 0A8.959 8.959 0 003 12c0 .778.099 1.533.284 2.253m0 0c.257 1.517.935 2.88 1.757 4.024" />
+                    <svg class="w-4 h-4 mr-2" xmlns="http://www.w3.org/100000/svg" fill="none" viewBox="0 0 24 24"
+                        stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0C20.464 16.21 18.43 18 16.5 18c-2.485 0-4.5-4.03-4.5-9s2.015-9 4.5-9m-3.364 12.083A11.953 11.953 0 0112 10.5c2.998 0 5.74 1.1 7.843 2.918m-15.686 0A8.959 8.959 0 003 12c0 .778.099 1.533.284 2.253m0 0c.257 1.517.935 2.88 1.757 4.024" />
                     </svg>
                     <span>English</span>
-                     <svg class="w-4 h-4 ml-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                    <svg class="w-4 h-4 ml-2" xmlns="http://www.w3.org/100000/svg" fill="none" viewBox="0 0 24 24"
+                        stroke-width="2" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                     </svg>
                 </button>
             </div>
 
-            <p class="mt-6 text-sm">Play It LoudUganda</p>
+            <p class="mt-6 text-sm">Play It Loud Uganda</p>
 
         </div>
+
+        <i class="fas fa-desktop"></i> <!-- Screen / PC -->
+        <i class="fas fa-wifi"></i> <!-- WiFi -->
+        <i class="fas fa-laptop"></i> <!-- Laptop/PC -->
+        <i class="fas fa-user"></i>
     </footer>
 
-        <script>
+    <script>
         const faqItems = document.querySelectorAll('.faq-item');
 
         faqItems.forEach(item => {
@@ -346,7 +443,8 @@
             });
         });
     </script>
-  
+
 
 </body>
+
 </html>
