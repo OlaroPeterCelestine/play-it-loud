@@ -2,34 +2,61 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Play It Loud</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-    <style>
-        body {
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Play It Loud</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <style>
+    body {
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    }
 
-        .no-scrollbar::-webkit-scrollbar {
-            display: none;
-            /* for Chrome, Safari, and Opera */
-        }
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
 
-        .no-scrollbar {
-            -ms-overflow-style: none;
-            /* for IE and Edge */
-            scrollbar-width: none;
-            /* for Firefox */
-        }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
 
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s ease-in-out;
-        }
-    </style>
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease-in-out;
+    }
+
+    /* Fancy image cards */
+    .card-stack {
+      perspective: 2000px;
+    }
+
+    .card {
+      transition: transform 0.9s ease, opacity 0.9s ease;
+      position: absolute;
+      inset: 0;
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+    }
+
+    .card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 1s ease;
+    }
+
+    .card:not(.curled):hover img {
+      transform: scale(1.05);
+    }
+
+    .card.curled {
+      transform: translateY(-80%) scale(0.9);
+      opacity: 0;
+    }
+  </style>
 </head>
 
 <body class="bg-black text-white">
@@ -147,6 +174,18 @@
                 </div>
             </div>
         </div>
+
+            <section class="px-6">
+      <div class="relative w-full max-w-5xl mx-auto aspect-[21/9]">
+        <div class="card-stack relative w-full h-full">
+          <div class="card"><img src="https://picsum.photos/id/1018/1600/700" alt="Slide 1"></div>
+          <div class="card"><img src="https://picsum.photos/id/1015/1600/700" alt="Slide 2"></div>
+          <div class="card"><img src="https://picsum.photos/id/1020/1600/700" alt="Slide 3"></div>
+          <div class="card"><img src="https://picsum.photos/id/1019/1600/700" alt="Slide 4"></div>
+          <div class="card"><img src="https://picsum.photos/id/1021/1600/700" alt="Slide 5"></div>
+        </div>
+      </div>
+    </section>
 
         <!-- More Reasons to Join Section -->
         <section class="px-4 sm:px-6 md:px-12">
@@ -411,37 +450,62 @@
     </footer>
 
     <script>
-        const faqItems = document.querySelectorAll('.faq-item');
+    // FAQ Script
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(item => {
+      const question = item.querySelector('.faq-question');
+      question.addEventListener('click', () => {
+        const answer = item.querySelector('.faq-answer');
+        const icon = item.querySelector('.faq-icon');
+        const isExpanded = answer.style.maxHeight && answer.style.maxHeight !== '0px';
 
-        faqItems.forEach(item => {
-            const question = item.querySelector('.faq-question');
-
-            question.addEventListener('click', () => {
-                const answer = item.querySelector('.faq-answer');
-                const icon = item.querySelector('.faq-icon');
-                const isExpanded = answer.style.maxHeight && answer.style.maxHeight !== '0px';
-
-                // Close all other FAQ items
-                faqItems.forEach(otherItem => {
-                    if (otherItem !== item) {
-                        otherItem.querySelector('.faq-answer').style.maxHeight = '0px';
-                        otherItem.querySelector('.faq-icon').classList.remove('rotate-45');
-                    }
-                });
-
-                // Toggle the clicked FAQ item
-                if (isExpanded) {
-                    answer.style.maxHeight = '0px';
-                    icon.classList.remove('rotate-45');
-                } else {
-                    answer.style.maxHeight = answer.scrollHeight + 'px';
-                    icon.classList.add('rotate-45');
-                }
-            });
+        faqItems.forEach(otherItem => {
+          if (otherItem !== item) {
+            otherItem.querySelector('.faq-answer').style.maxHeight = '0px';
+            otherItem.querySelector('.faq-icon').classList.remove('rotate-45');
+          }
         });
-    </script>
 
+        if (isExpanded) {
+          answer.style.maxHeight = '0px';
+          icon.classList.remove('rotate-45');
+        } else {
+          answer.style.maxHeight = answer.scrollHeight + 'px';
+          icon.classList.add('rotate-45');
+        }
+      });
+    });
 
+    // Fancy Slider Script
+    document.addEventListener('DOMContentLoaded', () => {
+      const cards = Array.from(document.querySelectorAll('.card')).reverse();
+      const totalCards = cards.length;
+      let currentCardIndex = 0;
+
+      cards.forEach((card, index) => {
+        card.style.zIndex = totalCards - index;
+        card.addEventListener('transitionend', (event) => {
+          if (event.propertyName === 'opacity' && card.classList.contains('curled')) {
+            card.style.display = 'none';
+          }
+        });
+      });
+
+      const slideNextCard = () => {
+        if (currentCardIndex >= totalCards) {
+          cards.forEach(card => {
+            card.classList.remove('curled');
+            card.style.display = 'block';
+          });
+          currentCardIndex = 0;
+        }
+        const cardToSlide = cards[currentCardIndex];
+        cardToSlide.classList.add('curled');
+        currentCardIndex++;
+      };
+
+      setInterval(slideNextCard, 1800);
+    });
+  </script>
 </body>
-
 </html>
