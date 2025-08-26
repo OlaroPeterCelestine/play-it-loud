@@ -8,9 +8,9 @@ import (
 	"net/http"
 
 	firebase "firebase.google.com/go/v4"
-	"cloud.google.com/go/firestore"
 	"github.com/gorilla/mux"
 	"google.golang.org/api/option"
+	"cloud.google.com/go/firestore"
 )
 
 var client *firestore.Client
@@ -18,9 +18,12 @@ var client *firestore.Client
 // Initialize Firebase
 func initFirebase() {
 	ctx := context.Background()
-	opt := option.WithCredentialsFile("serviceAccountKey.json") // Path to your Firebase service account key
+	opt := option.WithCredentialsFile("serviceAccountKey.json") // path to your service account key JSON
 
-	app, err := firebase.NewApp(ctx, nil, opt)
+	// Use your Firebase Project ID (from the JS config you pasted)
+	conf := &firebase.Config{ProjectID: "playitloud-1e8fe"}
+
+	app, err := firebase.NewApp(ctx, conf, opt)
 	if err != nil {
 		log.Fatalf("Error initializing Firebase app: %v", err)
 	}
@@ -41,7 +44,7 @@ type User struct {
 	Age   int    `json:"age"`
 }
 
-// API handler to insert data
+// POST /users → Add user
 func addUser(w http.ResponseWriter, r *http.Request) {
 	ctx := context.Background()
 	var user User
@@ -68,12 +71,32 @@ func addUser(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(map[string]string{"message": "User added successfully"})
 }
 
+// GET /users → Fetch all users
+func getUsers(w http.ResponseWriter, r *http.Request) {
+	ctx := context.Background()
+	var users []User
+
+	iter := client.Collection("users").Documents(ctx)
+	for {
+		doc, err := iter.Next()
+		if err != nil {
+			break
+		}
+		var u User
+		doc.DataTo(&u)
+		users = append(users, u)
+	}
+
+	json.NewEncoder(w).Encode(users)
+}
+
 func main() {
 	initFirebase()
 	defer client.Close()
 
 	r := mux.NewRouter()
 	r.HandleFunc("/users", addUser).Methods("POST")
+	r.HandleFunc("/users", getUsers).Methods("GET")
 
 	fmt.Println("🚀 Server started on port 8080")
 	log.Fatal(http.ListenAndServe(":8080", r))
