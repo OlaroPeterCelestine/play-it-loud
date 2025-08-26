@@ -27,17 +27,26 @@
       transition: max-height 0.5s ease-in-out;
     }
 
+    /* --- MODIFIED CSS FOR BETTER ANIMATION --- */
+
     /* Fancy image cards */
     .card-stack {
       perspective: 2000px;
+      transform-style: preserve-3d; /* Ensures 3D transforms are respected */
     }
 
     .card {
-      transition: transform 0.9s ease, opacity 0.9s ease;
+      /* Faster transition with a smoother easing function */
+      transition: transform 0.7s ease-in-out, opacity 0.7s ease-in-out;
       position: absolute;
       inset: 0;
       overflow: hidden;
       box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+      border-radius: 12px; /* Added for a softer look */
+
+      /* Add a slight initial offset to create a "stack" effect */
+      transform-origin: bottom center;
+      transform: rotate(calc(var(--i, 0) * 1.5deg)) translateY(calc(var(--i, 0) * -10px));
     }
 
     .card img {
@@ -51,8 +60,9 @@
       transform: scale(1.05);
     }
 
+    /* The new "tossed away" animation state */
     .card.curled {
-      transform: translateY(-80%) scale(0.9);
+      transform: translateY(-80%) translateX(110%) rotate(25deg) scale(0.9);
       opacity: 0;
     }
   </style>
@@ -99,7 +109,7 @@
                         <button type="submit"
                             class="flex w-auto shrink-0 items-center justify-center rounded-md bg-red-600 px-6 py-4 text-xl font-medium text-white hover:bg-red-700 sm:text-2xl">
                             Let's Play
-                            <svg xmlns="http://www.w3.org/100000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
                                 stroke="currentColor" class="ml-2 h-6 w-6">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
                             </svg>
@@ -111,80 +121,19 @@
     </div>
     <div class="space-y-12 py-12">
         <!-- Trending Now Section -->
-
-
-        <div class="p-8">
-            <h2 class="text-2xl font-bold mb-4">What's Poppin' RN</h2>
-            <div class="relative">
-                <div class="flex space-x-12 overflow-x-auto pb-4">
-
-                    <!-- Item 1 -->
-                    <div class="flex items-center">
-                        <div class="text-[12rem] font-bold text-black -mr-12"
-                            style="-webkit-text-stroke: 2px white; z-index: 1;">1</div>
-                        <div class="flex-shrink-0 w-52">
-                            <img src="New Folder With Items/Screenshot 2025-08-24 at 16.10.17.png" alt="Wednesday">
-                        </div>
-                    </div>
-
-                    <!-- Item 2 -->
-                    <div class="flex items-center">
-                        <div class="text-[12rem] font-bold text-black -mr-12"
-                            style="-webkit-text-stroke: 2px white; z-index: 1;">2</div>
-                        <div class="flex-shrink-0 w-52">
-                            <img src="New Folder With Items/Screenshot 2025-08-24 at 19.04.12.png" alt="Fatal Seduction">
-                        </div>
-                    </div>
-
-                    <!-- Item 3 -->
-                    <div class="flex items-center">
-                        <div class="text-[12rem] font-bold text-black -mr-12"
-                            style="-webkit-text-stroke: 2px white; z-index: 1;">3</div>
-                        <div class="flex-shrink-0 w-52">
-                            <img src="New Folder With Items/Screenshot 2025-08-24 at 19.00.09.png" alt="K-Pop Demon Hunters" >
-                        </div>
-                    </div>
-
-                    <!-- Item 4 -->
-                    <div class="flex items-center">
-                        <div class="text-[12rem] font-bold text-black -mr-12"
-                            style="-webkit-text-stroke: 2px white; z-index: 1;">4</div>
-                        <div class="flex-shrink-0 w-52">
-                            <img src="New Folder With Items/Screenshot 2025-08-24 at 18.59.55.png" alt="K-Pop Demon Hunters Sing-Along">
-                              
-                        </div>
-                    </div>
-
-                    <!-- Item 5 -->
-                    <div class="flex items-center">
-                        <div class="text-[12rem] font-bold text-black -mr-12"
-                            style="-webkit-text-stroke: 2px white; z-index: 1;">5</div>
-                        <div class="flex-shrink-0 w-52">
-                            <img src="New Folder With Items/Screenshot 2025-08-24 at 18.59.38.png" alt="Squid Game">
-                        </div>
-                    </div>
-                </div>
-                <div
-                    class="absolute right-0 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 p-2 rounded-full cursor-pointer">
-                    <svg xmlns="http://www.w3.org/100000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                    </svg>
-                </div>
-            </div>
-        </div>
-
             <section class="px-6">
-      <div class="relative w-full max-w-5xl mx-auto aspect-[21/9]">
-        <div class="card-stack relative w-full h-full">
-          <div class="card"><img src="https://picsum.photos/id/1018/1600/700" alt="Slide 1"></div>
-          <div class="card"><img src="https://picsum.photos/id/1015/1600/700" alt="Slide 2"></div>
-          <div class="card"><img src="https://picsum.photos/id/1020/1600/700" alt="Slide 3"></div>
-          <div class="card"><img src="https://picsum.photos/id/1019/1600/700" alt="Slide 4"></div>
-          <div class="card"><img src="https://picsum.photos/id/1021/1600/700" alt="Slide 5"></div>
-        </div>
-      </div>
-    </section>
+                <h2 class="text-2xl font-bold mb-4">What's Poppin' RN</h2>
+                <div class="relative w-full max-w-5xl mx-auto aspect-[21/9]">
+                    <div class="card-stack relative w-full h-full">
+                      <!-- ADDED INLINE STYLE FOR STACKING EFFECT -->
+                      <div class="card" style="--i: 0;"><img src="New Folder With Items/Screenshot 2025-08-24 at 16.10.17.png" alt="Slide 1"></div>
+                      <div class="card" style="--i: 1;"><img src="New Folder With Items/Screenshot 2025-08-24 at 19.04.12.png" alt="Slide 2"></div>
+                      <div class="card" style="--i: 2;"><img src="New Folder With Items/Screenshot 2025-08-24 at 19.00.09.png" alt="Slide 3"></div>
+                      <div class="card" style="--i: 3;"><img src="New Folder With Items/Screenshot 2025-08-24 at 18.59.55.png" alt="Slide 4"></div>
+                      <div class="card" style="--i: 4;"><img src="New Folder With Items/Screenshot 2025-08-24 at 18.59.38.png" alt="Slide 5"></div>
+                    </div>
+                </div>
+            </section>
 
         <!-- More Reasons to Join Section -->
         <section class="px-4 sm:px-6 md:px-12">
@@ -258,7 +207,7 @@
                         class="faq-question w-full bg-zinc-800 hover:bg-zinc-700 transition-colors text-left p-6 flex justify-between items-center">
                         <span class="text-xl sm:text-2xl font-medium">What's the deal with Play It Loud?</span>
                         <svg class="faq-icon w-8 h-8 sm:w-10 sm:h-10 transition-transform duration-500"
-                            xmlns="http://www.w3.org/100000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                         </svg>
@@ -279,7 +228,7 @@
                         class="faq-question w-full bg-zinc-800 hover:bg-zinc-700 transition-colors text-left p-6 flex justify-between items-center">
                         <span class="text-xl sm:text-2xl font-medium">How much is this gonna cost me?</span>
                         <svg class="faq-icon w-8 h-8 sm:w-10 sm:h-10 transition-transform duration-500"
-                            xmlns="http://www.w3.org/100000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                         </svg>
@@ -299,7 +248,7 @@
                         class="faq-question w-full bg-zinc-800 hover:bg-zinc-700 transition-colors text-left p-6 flex justify-between items-center">
                         <span class="text-xl sm:text-2xl font-medium">Where can I watch?</span>
                         <svg class="faq-icon w-8 h-8 sm:w-10 sm:h-10 transition-transform duration-500"
-                            xmlns="http://www.w3.org/100000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                         </svg>
@@ -320,7 +269,7 @@
                         class="faq-question w-full bg-zinc-800 hover:bg-zinc-700 transition-colors text-left p-6 flex justify-between items-center">
                         <span class="text-xl sm:text-2xl font-medium">How do I dip?</span>
                         <svg class="faq-icon w-8 h-8 sm:w-10 sm:h-10 transition-transform duration-500"
-                            xmlns="http://www.w3.org/100000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                         </svg>
@@ -340,7 +289,7 @@
                         class="faq-question w-full bg-zinc-800 hover:bg-zinc-700 transition-colors text-left p-6 flex justify-between items-center">
                         <span class="text-xl sm:text-2xl font-medium">What's good to watch?</span>
                         <svg class="faq-icon w-8 h-8 sm:w-10 sm:h-10 transition-transform duration-500"
-                            xmlns="http://www.w3.org/100000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                         </svg>
@@ -360,7 +309,7 @@
                         class="faq-question w-full bg-zinc-800 hover:bg-zinc-700 transition-colors text-left p-6 flex justify-between items-center">
                         <span class="text-xl sm:text-2xl font-medium">Is it a vibe for the whole squad?</span>
                         <svg class="faq-icon w-8 h-8 sm:w-10 sm:h-10 transition-transform duration-500"
-                            xmlns="http://www.w3.org/100000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                         </svg>
@@ -390,7 +339,7 @@
                     <button type="submit"
                         class="flex shrink-0 items-center justify-center rounded-md bg-red-600 px-5 py-3 text-xl font-medium text-white hover:bg-red-700 transition-transform hover:scale-105 sm:text-2xl">
                         Let's Play
-                        <svg xmlns="http://www.w3.org/100000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
                             stroke="currentColor" class="ml-2 h-6 w-6">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
                         </svg>
@@ -428,13 +377,13 @@
 
             <div class="relative inline-block mt-8">
                 <button class="flex items-center border border-gray-600 rounded bg-black px-4 py-2 text-white">
-                    <svg class="w-4 h-4 mr-2" xmlns="http://www.w3.org/100000/svg" fill="none" viewBox="0 0 24 24"
+                    <svg class="w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                         stroke-width="1.5" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round"
                             d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0C20.464 16.21 18.43 18 16.5 18c-2.485 0-4.5-4.03-4.5-9s2.015-9 4.5-9m-3.364 12.083A11.953 11.953 0 0112 10.5c2.998 0 5.74 1.1 7.843 2.918m-15.686 0A8.959 8.959 0 003 12c0 .778.099 1.533.284 2.253m0 0c.257 1.517.935 2.88 1.757 4.024" />
                     </svg>
                     <span>English</span>
-                    <svg class="w-4 h-4 ml-2" xmlns="http://www.w3.org/100000/svg" fill="none" viewBox="0 0 24 24"
+                    <svg class="w-4 h-4 ml-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                         stroke-width="2" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                     </svg>
@@ -442,10 +391,7 @@
             </div>
 
             <p class="mt-6 text-sm">Play It Loud Uganda</p>
-
         </div>
-
-   
     </footer>
 
     <script>
@@ -475,35 +421,51 @@
       });
     });
 
-    // Fancy Slider Script
+    // --- REFINED SLIDER SCRIPT ---
     document.addEventListener('DOMContentLoaded', () => {
-      const cards = Array.from(document.querySelectorAll('.card')).reverse();
-      const totalCards = cards.length;
-      let currentCardIndex = 0;
+        // Get cards in their original DOM order
+        const cards = Array.from(document.querySelectorAll('.card'));
+        const totalCards = cards.length;
+        let currentCardIndex = 0;
 
-      cards.forEach((card, index) => {
-        card.style.zIndex = totalCards - index;
-        card.addEventListener('transitionend', (event) => {
-          if (event.propertyName === 'opacity' && card.classList.contains('curled')) {
-            card.style.display = 'none';
-          }
+        // Set initial z-index for proper stacking visual
+        cards.forEach((card, index) => {
+            card.style.zIndex = totalCards - index;
         });
-      });
 
-      const slideNextCard = () => {
-        if (currentCardIndex >= totalCards) {
-          cards.forEach(card => {
-            card.classList.remove('curled');
-            card.style.display = 'block';
-          });
-          currentCardIndex = 0;
-        }
-        const cardToSlide = cards[currentCardIndex];
-        cardToSlide.classList.add('curled');
-        currentCardIndex++;
-      };
+        const slideNextCard = () => {
+            // When all cards are curled, reset the stack
+            if (currentCardIndex >= totalCards) {
+                // Use a small timeout to allow the last card to finish its transition out
+                setTimeout(() => {
+                    cards.forEach(card => {
+                        // We remove the 'curled' class to reset their state.
+                        // The 'transition' property in the CSS will animate them back.
+                        // To prevent them from showing up while resetting, we keep them hidden briefly.
+                        card.style.display = 'none';
+                        card.classList.remove('curled');
+                        
+                        // Force a reflow to ensure the class removal is registered before making them visible again
+                        void card.offsetWidth;
 
-      setInterval(slideNextCard, 1800);
+                        // Make them visible again to animate back into the stack
+                        card.style.display = 'block';
+                    });
+                    currentCardIndex = 0;
+                }, 700); // This delay should match the transition duration in CSS
+                return;
+            }
+
+            // Get the card to slide away (from the top of the visual stack)
+            const cardToSlide = cards[currentCardIndex];
+            if (cardToSlide) {
+                cardToSlide.classList.add('curled');
+                currentCardIndex++;
+            }
+        };
+
+        // Set the interval for the animation
+        setInterval(slideNextCard, 2000); // Slightly increased interval for a better viewing experience
     });
   </script>
 </body>
