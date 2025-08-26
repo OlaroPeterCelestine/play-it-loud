@@ -62,7 +62,7 @@
 <body class="bg-black text-white">
 
     <div class="relative h-screen w-full bg-cover bg-center"
-        style="background-image: url('Group\ 1.png');">
+        style="background-image: url('https://images.pexels.com/photos/7991579/pexels-photo-7991579.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
         <div class="absolute inset-0 bg-black bg-opacity-60"></div>
 
         <div class="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -87,7 +87,16 @@
                         straight-up fire content</h1>
                     <p class="mt-6 text-lg sm:text-xl">Ready to binge? Drop your details to level up your watch game.</p>
 
-                    <form class="mx-auto mt-6 flex max-w-xl flex-col items-center gap-4 sm:flex-row">
+                    <form class="mx-auto mt-8 max-w-xl flex flex-col items-center gap-4">
+                        <!-- Name Input -->
+                        <div class="relative w-full">
+                            <input type="text" id="name" name="name"
+                                class="peer w-full rounded-md border border-gray-500 bg-black bg-opacity-50 px-4 py-4 text-white placeholder-transparent focus:border-white focus:outline-none focus:ring-0"
+                                placeholder="Full Name">
+                            <label for="name"
+                                class="absolute left-4 top-4 cursor-text text-gray-400 transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-focus:-top-2 peer-focus:text-xs peer-focus:text-gray-400">Full Name</label>
+                        </div>
+                        <!-- Email Input -->
                         <div class="relative w-full">
                             <input type="email" id="email" name="email"
                                 class="peer w-full rounded-md border border-gray-500 bg-black bg-opacity-50 px-4 py-4 text-white placeholder-transparent focus:border-white focus:outline-none focus:ring-0"
@@ -96,8 +105,16 @@
                                 class="absolute left-4 top-4 cursor-text text-gray-400 transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-focus:-top-2 peer-focus:text-xs peer-focus:text-gray-400">Email
                                 address</label>
                         </div>
+                        <!-- Phone Number Input -->
+                        <div class="relative w-full">
+                            <input type="tel" id="phone" name="phone"
+                                class="peer w-full rounded-md border border-gray-500 bg-black bg-opacity-50 px-4 py-4 text-white placeholder-transparent focus:border-white focus:outline-none focus:ring-0"
+                                placeholder="Phone Number">
+                            <label for="phone"
+                                class="absolute left-4 top-4 cursor-text text-gray-400 transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-focus:-top-2 peer-focus:text-xs peer-focus:text-gray-400">Phone Number</label>
+                        </div>
                         <button type="submit"
-                            class="flex w-auto shrink-0 items-center justify-center rounded-md bg-red-600 px-6 py-4 text-xl font-medium text-white hover:bg-red-700 sm:text-2xl">
+                            class="flex w-full sm:w-auto shrink-0 items-center justify-center rounded-md bg-red-600 px-6 py-4 text-xl font-medium text-white hover:bg-red-700 sm:text-2xl mt-2">
                             Let's Play
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
                                 stroke="currentColor" class="ml-2 h-6 w-6">
@@ -366,14 +383,33 @@
 
             <div class="text-center mt-16">
                 <p class="text-xl mb-4">Ready to watch? Drop your email to create or restart your membership.</p>
-                <form class="max-w-xl mx-auto flex flex-col sm:flex-row gap-2">
+                <form class="max-w-xl mx-auto flex flex-col gap-4">
+                    <!-- Name Input -->
                     <div class="relative w-full">
-                        <input type="email" id="email-faq"
+                        <input type="text" id="name-faq" name="name-faq"
+                            class="peer w-full rounded-md border border-zinc-500 bg-black bg-opacity-50 px-4 py-4 text-white placeholder-transparent focus:border-white focus:outline-none focus:ring-1 focus:ring-white"
+                            placeholder="Full Name">
+                        <label for="name-faq"
+                            class="absolute left-4 -top-3.5 text-zinc-400 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-4 peer-focus:-top-3.5 peer-focus:text-white peer-focus:text-sm">Full
+                            Name</label>
+                    </div>
+                    <!-- Email Input -->
+                    <div class="relative w-full">
+                        <input type="email" id="email-faq" name="email-faq"
                             class="peer w-full rounded-md border border-zinc-500 bg-black bg-opacity-50 px-4 py-4 text-white placeholder-transparent focus:border-white focus:outline-none focus:ring-1 focus:ring-white"
                             placeholder="Email address">
                         <label for="email-faq"
                             class="absolute left-4 -top-3.5 text-zinc-400 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-4 peer-focus:-top-3.5 peer-focus:text-white peer-focus:text-sm">Email
                             address</label>
+                    </div>
+                    <!-- Phone Number Input -->
+                    <div class="relative w-full">
+                        <input type="tel" id="phone-faq" name="phone-faq"
+                            class="peer w-full rounded-md border border-zinc-500 bg-black bg-opacity-50 px-4 py-4 text-white placeholder-transparent focus:border-white focus:outline-none focus:ring-1 focus:ring-white"
+                            placeholder="Phone Number">
+                        <label for="phone-faq"
+                            class="absolute left-4 -top-3.5 text-zinc-400 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-4 peer-focus:-top-3.5 peer-focus:text-white peer-focus:text-sm">Phone
+                            Number</label>
                     </div>
                     <button type="submit"
                         class="flex shrink-0 items-center justify-center rounded-md bg-red-600 px-5 py-3 text-xl font-medium text-white hover:bg-red-700 transition-transform hover:scale-105 sm:text-2xl">
